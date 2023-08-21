@@ -1,18 +1,21 @@
 {
-  "name": "",
-  "type": "module",
-  "version": "0.0.1",
-  "scripts": {
-    "dev": "astro dev",
-    "start": "astro dev",
-    "build": "astro build",
-    "preview": "astro preview",
-    "astro": "astro"
-  },
-  "dependencies": {
-    "@astrojs/alpinejs": "^0.2.2",
-    "@types/alpinejs": "^3.7.2",
-    "alpinejs": "^3.12.3",
-    "astro": "^2.10.2"
-  }
+    "name": "beat-saver-manager",
+    "type": "module",
+    "version": "0.0.1",
+    "scripts": {
+        "dev": "astro dev",
+        "start": "astro dev",
+        "build": "astro build",
+        "preview": "astro preview",
+        "astro": "astro"
+    },
+    "dependencies": {
+        "@alpinejs/persist": "^3.12.3",
+        "@astrojs/tailwind": "^4.0.0",
+        "@zip.js/zip.js": "^2.7.24",
+        "alpinejs": "^3.12.3",
+        "astro": "^2.10.2",
+        "idb-keyval": "^6.2.1",
+        "tailwindcss": "^3.3.3"
+    }
 }
