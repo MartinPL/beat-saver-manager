@@ -1,0 +1,20 @@
+<!-- TODO: Replace with progress bar -->
+<div x-data="notify" @notify.window="add($event.detail)" class="fixed bottom-4 right-4">
+    <div x-text="text"></div>
+</div>
+
+<script>
+    import Alpine from "alpinejs"
+    Alpine.data("notify", () => ({
+        text: "",
+        timeout: false,
+        add(text) {
+            this.text = text
+            this.clear()
+        },
+        clear() {
+            clearTimeout(this.timeout)
+            this.timeout = setTimeout(() => (this.text = ""), 2000)
+        },
+    }))
+</script>

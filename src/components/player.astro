@@ -1,0 +1,11 @@
+<audio x-data="player" @play.window="play($event.detail)"></audio>
+
+<script>
+    import Alpine from "alpinejs"
+    Alpine.data("player", () => ({
+        play(url) {
+            this.$el.src = url
+            this.$el.play()
+        },
+    }))
+</script>
