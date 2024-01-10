@@ -1,0 +1,39 @@
+<tr class="border-b border-gray-700 last:border-b-0">
+    <td class="py-3 pr-3 text-left text-slate-600 flex items-center gap-x-2">
+        <img :src="map.versions[0].coverURL" class="object-cover w-10 h-10 rounded-full" alt="" />
+        <div>
+            <h2 x-text="map.name" class="font-medium text-gray-800 dark:text-white"></h2>
+            <p x-text="`@${map.uploader.name}`" class="text-sm font-normal text-gray-600 dark:text-gray-400"></p>
+        </div>
+    </td>
+    <td class="p-3 font-medium">
+        <div class="flex flex-wrap items-center gap-2">
+            <template x-for="version in map.versions">
+                <template x-for="diff in version.diffs">
+                    <p x-text="diff.difficulty" class="px-3 py-1 text-xs text-indigo-500 rounded-full dark:bg-gray-800 bg-indigo-100/60"></p>
+                </template>
+            </template>
+        </div>
+    </td>
+    <td class="py-3 pl-3 text-right font-medium">
+        <button
+        class="group inline-flex items-center gap-1 rounded-lg border border-gray-700 px-2.5 py-1.5 font-medium hover:border-violet-300 hover:text-violet-800 active:border-slate-200"
+        @click="$dispatch('play', map.versions[0].previewURL)"
+        >
+            <span>Play</span>
+            <svg
+                class="hi-mini hi-arrow-right inline-block h-5 w-5 text-slate-400 group-hover:text-violet-600 group-active:translate-x-0.5"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+                aria-hidden="true"
+            >
+                <path
+                fill-rule="evenodd"
+                d="M3 10a.75.75 0 01.75-.75h10.638L10.23 5.29a.75.75 0 111.04-1.08l5.5 5.25a.75.75 0 010 1.08l-5.5 5.25a.75.75 0 11-1.04-1.08l4.158-3.96H3.75A.75.75 0 013 10z"
+                clip-rule="evenodd"
+                ></path>
+            </svg>
+        </button>
+    </td>
+</tr>

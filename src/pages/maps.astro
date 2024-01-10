@@ -1,0 +1,29 @@
+---
+import Base from "../components/base.astro"
+import Playlist from "../components/playlist.astro"
+---
+
+<Base>
+    <div x-data="maps">
+        <Playlist />
+    </div>
+</Base>
+
+<script>
+    import Alpine from "alpinejs"
+    Alpine.data("maps", () => ({
+        maps: [],
+        init() {
+            const query = new URLSearchParams(window.location.search).get("q") ?? ''
+            this.search(query)
+        },
+        async search(query) {
+            let response = await fetch(`https://api.beatsaver.com/search/text/0?q=${query}&sortOrder=Latest`)
+            response = await response.json()
+            this.maps = response.docs
+        },
+        async download(map) {
+            Alpine.store("drive").downloadMap(map.id, map.versions[0].downloadURL)
+        },
+    }))
+</script>
